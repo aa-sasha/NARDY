@@ -4,7 +4,7 @@ using UnityEngine.EventSystems;
 using System.Collections;
 
 /// <summary>
-/// Добавляет неоновое мерцание и pop-анимацию к UI кнопкам в стиле Balatro.
+/// Добавляет неоновое мерцание и pop-анимацию к UI кнопкам.
 /// Прикрепляется к GameObject с компонентом Button.
 /// </summary>
 [RequireComponent(typeof(Button))]

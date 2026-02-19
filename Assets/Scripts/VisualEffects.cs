@@ -3,15 +3,15 @@ using UnityEngine.UI;
 using System.Collections;
 
 /// <summary>
-/// Balatro-стиль эффекты: CRT сканлинии, виньетка, хроматическая аберрация,
+/// Визуальные эффекты: CRT сканлинии, виньетка, хроматическая аберрация,
 /// пульсация элементов, тряска камеры и неоновое свечение.
 /// Добавляется на главный Canvas или отдельный объект в сцене.
 /// </summary>
-public class BalatroEffects : MonoBehaviour
+public class VisualEffects : MonoBehaviour
 {
     // ========================= СИНГЛТОН =========================
 
-    public static BalatroEffects Instance { get; private set; }
+    public static VisualEffects Instance { get; private set; }
 
     // ========================= НАСТРОЙКИ CRT =========================
 

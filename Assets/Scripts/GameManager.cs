@@ -94,7 +94,7 @@ public class GameManager : MonoBehaviour
     private bool isGameOver;
     private bool isAnimating; // Флаг: анимация хода активна
 
-    // ========================= ЦВЕТОВАЯ ПАЛИТРА ФИШЕК (BALATRO-СТИЛЬ) =========================
+    // ========================= ЦВЕТОВАЯ ПАЛИТРА ФИШЕК =========================
 
     // Белые фишки — слоновая кость с неоново-розовым отливом
     private readonly Color whiteCheckerBase = new Color(1.0f, 0.97f, 0.91f);         // Слоновая кость
@@ -108,7 +108,7 @@ public class GameManager : MonoBehaviour
     private readonly Color blackCheckerShadow = new Color(0.03f, 0.01f, 0.07f);      // Глубокая тень
     private readonly Color blackCheckerRim = new Color(0.0f, 0.94f, 1.0f);           // Неоново-голубой ободок
 
-    // Подсветка ходов — неоновые цвета Balatro
+    // Подсветка ходов — неоновые цвета
     private readonly Color highlightMoveColor = new Color(0.0f, 1.0f, 0.5f, 0.85f);   // Неоново-зелёный
     private readonly Color highlightSelectedColor = new Color(1.0f, 0.0f, 0.78f, 0.85f); // Неоново-розовый
 
@@ -157,11 +157,11 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        // Запускаем CRT-эффекты Balatro
-        if (FindFirstObjectByType<BalatroEffects>() == null)
+        // Запускаем CRT-эффекты
+        if (FindFirstObjectByType<VisualEffects>() == null)
         {
-            GameObject fxObj = new GameObject("BalatroEffects");
-            fxObj.AddComponent<BalatroEffects>();
+            GameObject fxObj = new GameObject("VisualEffects");
+            fxObj.AddComponent<VisualEffects>();
         }
 
         // Генерируем процедурные спрайты фишек
@@ -191,7 +191,7 @@ public class GameManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Создаёт процедурные спрайты для фишек в стиле Balatro.
+    /// Создаёт процедурные спрайты для фишек в неоновом стиле.
     /// Неоновые фишки: тёмная заливка + яркий неоновый ободок.
     /// Вызывается один раз при старте — все фишки используют общие спрайты.
     /// </summary>
@@ -290,7 +290,7 @@ public class GameManager : MonoBehaviour
 
         SpriteRenderer outlineSr = outline.AddComponent<SpriteRenderer>();
         outlineSr.sprite = isWhite ? whiteCheckerSprite : blackCheckerSprite;
-        // Ободок в неоновом цвете Balatro
+        // Ободок в неоновом цвете
         outlineSr.color = isWhite
             ? new Color(1.0f, 0.45f, 0.85f, 0.35f)   // Неоново-розовый ободок
             : new Color(0.0f, 0.94f, 1.0f, 0.35f);   // Неоново-голубой ободок
@@ -823,9 +823,9 @@ public class GameManager : MonoBehaviour
         if (currentPlayerText != null)
             currentPlayerText.text = winner;
 
-        // Тряска камеры при победе (Balatro-стиль)
-        if (BalatroEffects.Instance != null)
-            BalatroEffects.Instance.ShakeCamera(0.15f);
+        // Тряска камеры при победе
+        if (VisualEffects.Instance != null)
+            VisualEffects.Instance.ShakeCamera(0.15f);
 
         ShowGameOverPanel(winner);
         return true;
@@ -1108,9 +1108,9 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("MainMenu");
     }
 
-    // ========================= ЦВЕТОВАЯ ПАЛИТРА UI (BALATRO) =========================
+    // ========================= ЦВЕТОВАЯ ПАЛИТРА UI =========================
 
-    // Цвета для интерфейса в стиле Balatro
+    // Цвета для интерфейса в неоновом стиле
     private readonly Color uiPanelColor = new Color(0.04f, 0.03f, 0.10f, 0.95f);        // Тёмно-синий фон
     private readonly Color uiButtonColor = new Color(0.10f, 0.05f, 0.20f, 0.95f);        // Тёмно-фиолетовая кнопка
     private readonly Color uiButtonHoverColor = new Color(0.20f, 0.08f, 0.35f, 0.95f);   // Фиолетовая подсветка
@@ -1383,7 +1383,7 @@ public class GameManager : MonoBehaviour
         colors.fadeDuration = 0.08f;
         btn.colors = colors;
 
-        // Неоновая пульсация кнопки (Balatro-стиль)
+        // Неоновая пульсация кнопки
         obj.AddComponent<NeonButtonPulse>();
 
         // Текст кнопки

@@ -40,7 +40,7 @@ public class Dice : MonoBehaviour
     // Кэш спрайтов граней (6 штук, индекс = значение - 1)
     private Sprite[] faceSprites;
 
-    // Цвета кубиков — Balatro стиль (тёмный фон + неоновые точки)
+    // Цвета кубиков — тёмный фон + неоновые точки
     private readonly Color diceFaceColor = new Color(0.06f, 0.04f, 0.12f);  // Тёмно-фиолетовый фон
     private readonly Color diceDotColor = new Color(1.0f, 0.0f, 0.78f);     // Неоново-розовые точки
 
@@ -75,7 +75,7 @@ public class Dice : MonoBehaviour
     }
 
     /// <summary>
-    /// Генерирует 6 пиксельных спрайтов граней кубика в стиле Balatro.
+    /// Генерирует 6 пиксельных спрайтов граней кубика.
     /// Тёмный фон с неоновыми точками.
     /// </summary>
     private void CreateFaceSprites()

@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 
 /// <summary>
-/// Компонент фишки (белая/чёрная) в стиле Balatro.
+/// Компонент фишки (белая/чёрная) в неоновом стиле.
 /// Хранит цвет и текущую позицию на доске.
 /// Отвечает за анимацию движения, неоновую подсветку выбора и эффект вспышки при битье.
 /// </summary>
@@ -15,7 +15,7 @@ public class CheckerPiece : MonoBehaviour
     [SerializeField] private float moveDuration = 0.3f;      // Длительность перемещения (секунды)
     [SerializeField] private float flashDuration = 0.15f;    // Длительность вспышки при битье
 
-    [Header("Настройки выделения (Balatro)")]
+    [Header("Настройки выделения")]
     [SerializeField] private float selectScale = 1.12f;         // Масштаб при выборе
     [SerializeField] private float glowPulseSpeed = 3.0f;       // Скорость пульсации неонового свечения
     [SerializeField] private float glowPulseMin = 0.5f;         // Минимальная прозрачность свечения
@@ -241,7 +241,7 @@ public class CheckerPiece : MonoBehaviour
         spriteRenderer.color = currentColor;
 
         // Тряска камеры при битье
-        if (BalatroEffects.Instance != null)
-            BalatroEffects.Instance.ShakeCamera(0.05f);
+        if (VisualEffects.Instance != null)
+            VisualEffects.Instance.ShakeCamera(0.05f);
     }
 }

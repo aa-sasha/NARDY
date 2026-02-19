@@ -16,9 +16,9 @@ public class MainMenuManager : MonoBehaviour
     private Button btnEasy, btnMedium, btnHard;
     private Image imgEasy, imgMedium, imgHard;
 
-    // ========================= ЦВЕТОВАЯ ПАЛИТРА BALATRO =========================
+    // ========================= ЦВЕТОВАЯ ПАЛИТРА =========================
 
-    // Цвета в стиле Balatro: тёмный фон + неоновые акценты
+    // Цвета: тёмный фон + неоновые акценты
     private readonly Color bgColor = new Color(0.04f, 0.03f, 0.08f, 1f);                // Тёмно-синий фон (#0a0a14)
     private readonly Color panelColor = new Color(0.06f, 0.04f, 0.14f, 0.97f);          // Тёмно-фиолетовая панель
     private readonly Color goldText = new Color(0.0f, 0.94f, 1.0f);                     // Неоново-голубой (#00f0ff)
@@ -34,11 +34,11 @@ public class MainMenuManager : MonoBehaviour
 
     private void Start()
     {
-        // Запускаем CRT-эффекты Balatro
-        if (FindFirstObjectByType<BalatroEffects>() == null)
+        // Запускаем CRT-эффекты
+        if (FindFirstObjectByType<VisualEffects>() == null)
         {
-            GameObject fxObj = new GameObject("BalatroEffects");
-            fxObj.AddComponent<BalatroEffects>();
+            GameObject fxObj = new GameObject("VisualEffects");
+            fxObj.AddComponent<VisualEffects>();
         }
         CreateUI();
     }
@@ -259,7 +259,7 @@ public class MainMenuManager : MonoBehaviour
         colors.fadeDuration = 0.08f;
         btn.colors = colors;
 
-        // Неоновая пульсация кнопки (Balatro-стиль)
+        // Неоновая пульсация кнопки
         obj.AddComponent<NeonButtonPulse>();
 
         // Текст кнопки

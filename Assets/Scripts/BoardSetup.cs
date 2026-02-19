@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine.InputSystem;
 
 /// <summary>
-/// Создаёт доску для длинных нард в стиле Balatro:
+/// Создаёт доску для длинных нард в неоновом стиле:
 /// тёмный фон, неоновые треугольники, пиксельная эстетика.
 ///
 /// Раскладка доски (перспектива белых):
@@ -22,7 +22,7 @@ public class BoardSetup : MonoBehaviour
     private const float BarWidth = 1f;        // Ширина центрального бара
     private const float BorderSize = 0.5f;    // Толщина рамки
 
-    // ========================= ЦВЕТОВАЯ ПАЛИТРА BALATRO =========================
+    // ========================= ЦВЕТОВАЯ ПАЛИТРА =========================
 
     // Фон доски — глубокий чёрный/тёмно-синий
     private readonly Color bgColor = new Color(0.04f, 0.03f, 0.08f);         // #0a0a14
@@ -71,11 +71,11 @@ public class BoardSetup : MonoBehaviour
 
     private void Start()
     {
-        // Запускаем эффекты Balatro
-        if (BalatroEffects.Instance == null)
+        // Запускаем визуальные эффекты
+        if (VisualEffects.Instance == null)
         {
-            GameObject fxObj = new GameObject("BalatroEffects");
-            fxObj.AddComponent<BalatroEffects>();
+            GameObject fxObj = new GameObject("VisualEffects");
+            fxObj.AddComponent<VisualEffects>();
         }
     }
 
@@ -99,7 +99,7 @@ public class BoardSetup : MonoBehaviour
 
     /// <summary>
     /// Создаёт неоновый треугольник с тёмным заполнением и светящимися краями.
-    /// Стиль Balatro: тёмная заливка + яркий неоновый контур.
+    /// Тёмная заливка + яркий неоновый контур.
     /// </summary>
     private Sprite CreateNeonTriangleSprite(int width, int height, Color neonColor, Color fillColor, bool flipped)
     {
